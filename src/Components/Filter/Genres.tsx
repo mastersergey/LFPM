@@ -1,7 +1,7 @@
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import React from 'react';
 
-import genresData from './data';
+import genresData from './genresData';
 
 function Genres() {
   return (
@@ -15,7 +15,11 @@ function Genres() {
       }}
     >
       {genresData.map((item) => (
-        <FormControlLabel control={<Checkbox size="small" />} key={item} label={item} />
+        <FormControlLabel
+          control={<Checkbox size="small" />}
+          key={item.id}
+          label={item.name}
+        />
       ))}
     </FormGroup>
   );
