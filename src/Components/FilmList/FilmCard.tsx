@@ -13,8 +13,12 @@ import {
 } from '@mui/material';
 import React from 'react';
 
-function FilmCard(props: { vote: number; title: string }) {
-  const { vote, title } = props;
+function getPosterUrl(path: string) {
+  return 'https://image.tmdb.org/t/p/w300/' + path;
+}
+
+function FilmCard(props: { vote: number; title: string; poster: string }) {
+  const { vote, title, poster } = props;
   return (
     <Box sx={{ maxWidth: '450px', mb: '30px' }}>
       <Card
@@ -26,9 +30,9 @@ function FilmCard(props: { vote: number; title: string }) {
       >
         <CardMedia
           component="img"
-          alt="green iguana"
-          height="300"
-          image="https://m.media-amazon.com/images/M/MV5BMjMwNDkxMTgzOF5BMl5BanBnXkFtZTgwNTkwNTQ3NjM@._V1_FMjpg_UX1000_.jpg"
+          alt="poster"
+          height="312"
+          image={getPosterUrl(poster)}
         />
         <CardContent sx={{ display: 'grid', gridTemplateRows: '50px 100px 100px' }}>
           <CardActions sx={{ display: 'grid', gridTemplateColumns: '120px 30px 30px' }}>
