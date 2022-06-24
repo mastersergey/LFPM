@@ -4,7 +4,13 @@ import { useSelector } from 'react-redux';
 
 import FilmCard from './FilmCard';
 import { FilmType } from './filmData';
-import { filmsData } from './filmData';
+import { getFilteredData } from './filterData';
+
+export type StateType = {
+  currentPage: number;
+  sortType: string;
+  yearFilter: never;
+};
 
 function getCurrentPageList(list: FilmType[], page: number) {
   const pos = page * 10;
@@ -12,8 +18,8 @@ function getCurrentPageList(list: FilmType[], page: number) {
 }
 
 function FilmList() {
-  const currentPageList = useSelector((state) =>
-    getCurrentPageList(filmsData, Number(state)),
+  const currentPageList = useSelector((state: StateType) =>
+    getCurrentPageList(getFilteredData(), Number(state.currentPage)),
   );
 
   return (

@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
 
-import { currentPage } from './reduce';
+import lfmpApp from './reduce';
 
-export const store = createStore(currentPage);
+export const store = createStore(lfmpApp);
