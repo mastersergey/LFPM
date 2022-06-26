@@ -6,6 +6,7 @@ import { setCurrentPage } from 'redux/action';
 
 function FilterPagination() {
   const dispatch = useDispatch();
+  const pagesCount = Math.round(getFilteredData().length / 10);
 
   function hundlePage(event: ChangeEvent<unknown>, page: number) {
     dispatch(setCurrentPage(page));
@@ -13,7 +14,7 @@ function FilterPagination() {
   return (
     <Pagination
       onChange={hundlePage}
-      count={getFilteredData().length / 10}
+      count={pagesCount}
       variant="text"
       shape="circular"
       size="small"

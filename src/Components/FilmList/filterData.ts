@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { filmsData, FilmType } from './filmData';
 import { StateType } from './FilmList';
 
-function filterData(data: FilmType[], filter: string): FilmType[] {
+function sortData(data: FilmType[], filter: string): FilmType[] {
   switch (filter) {
     case 'popularFirst':
       return [...data].sort((a, b) => b.popularity - a.popularity);
@@ -19,11 +19,25 @@ function filterData(data: FilmType[], filter: string): FilmType[] {
 }
 
 function getFilteredData() {
-  const filteredData = useSelector((state: StateType) =>
-    filterData(filmsData, state.sortType).filter(
-      (item) => new Date(item.release_date).getFullYear() === state.yearFilter,
+  const sortedData = useSelector((state: StateType) =>
+    sortData(filmsData, state.sortType),
+  );
+  const filteredByYear = useSelector((state: StateType) =>
+    sortedData.filter(
+      ({ release_date }) => new Date(release_date).getFullYear() === state.yearFilter,
     ),
   );
+
+  const isGenreInState = (filmGenre: number[], stateGenres: number[]) => {
+    return filmGenre.find((id) => stateGenres.includes(id));
+  };
+
+  const filteredData = useSelector((state: StateType) => {
+    return filteredByYear.filter(
+      ({ genre_ids }) =>
+        !state.genresList.length || isGenreInState(genre_ids, state.genresList),
+    );
+  });
 
   return filteredData;
 }

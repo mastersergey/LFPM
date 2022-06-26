@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { setSortType, setYearFilter } from 'redux/action';
+import { resetGenre, setSortType, setYearFilter } from 'redux/action';
 
 function ResetButton() {
   const dispatch = useDispatch();
@@ -9,6 +9,7 @@ function ResetButton() {
   function hundleReset() {
     dispatch(setSortType('popularFirst'));
     dispatch(setYearFilter(2020));
+    dispatch(resetGenre());
   }
 
   return (

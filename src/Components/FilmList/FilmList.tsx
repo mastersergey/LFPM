@@ -10,6 +10,7 @@ export type StateType = {
   currentPage: number;
   sortType: string;
   yearFilter: never;
+  genresList: number[];
 };
 
 function getCurrentPageList(list: FilmType[], page: number) {

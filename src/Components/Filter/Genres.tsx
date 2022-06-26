@@ -1,9 +1,32 @@
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
-import React from 'react';
+import { StateType } from 'Components/FilmList/FilmList';
+import React, { SyntheticEvent } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeGenre, setGenre } from 'redux/action';
 
 import genresData from './genresData';
 
+function GenreItem(props: { id: number; name: string }) {
+  const dispatch = useDispatch();
+  const { name, id } = props;
+  const isChecked = useSelector((state: StateType) => state.genresList.includes(id));
+
+  function hundleChecked(event: SyntheticEvent, checked: boolean) {
+    dispatch(checked ? setGenre(id) : removeGenre(id));
+  }
+  return (
+    <FormControlLabel
+      checked={isChecked}
+      onChange={hundleChecked}
+      control={<Checkbox size="small" />}
+      label={name}
+    />
+  );
+}
+
 function Genres() {
+  console.log(useSelector((state) => state));
+
   return (
     <FormGroup
       sx={{
@@ -14,12 +37,8 @@ function Genres() {
         maxHeight: 300,
       }}
     >
-      {genresData.map((item) => (
-        <FormControlLabel
-          control={<Checkbox size="small" />}
-          key={item.id}
-          label={item.name}
-        />
+      {genresData.map(({ id, name }) => (
+        <GenreItem id={id} name={name} key={id} />
       ))}
     </FormGroup>
   );
