@@ -2,7 +2,7 @@ import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
 import { StateType } from 'Components/FilmList/FilmList';
 import React, { SyntheticEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeGenre, setGenre } from 'redux/action';
+import { removeGenre, setCurrentPage, setGenre } from 'redux/action';
 
 import genresData from './genresData';
 
@@ -13,7 +13,9 @@ function GenreItem(props: { id: number; name: string }) {
 
   function hundleChecked(event: SyntheticEvent, checked: boolean) {
     dispatch(checked ? setGenre(id) : removeGenre(id));
+    dispatch(setCurrentPage(1));
   }
+
   return (
     <FormControlLabel
       checked={isChecked}
