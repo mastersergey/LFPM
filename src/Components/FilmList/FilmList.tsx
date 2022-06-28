@@ -11,6 +11,10 @@ export type StateType = {
   sortType: string;
   yearFilter: never;
   genresList: number[];
+  loginModal: boolean;
+  logoutModal: boolean;
+  isUserLogged: boolean;
+  markerType: string;
 };
 
 function getCurrentPageList(list: FilmType[], page: number) {
@@ -25,8 +29,8 @@ function FilmList() {
 
   return (
     <Container maxWidth="xl" sx={{ display: 'grid', gridTemplateColumns: '470px 470px' }}>
-      {currentPageList.map(({ vote_average, title, id, poster_path }) => (
-        <FilmCard poster={poster_path} vote={vote_average} title={title} key={id} />
+      {currentPageList.map((film: FilmType) => (
+        <FilmCard film={film} key={film.id} />
       ))}
     </Container>
   );

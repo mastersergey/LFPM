@@ -1,6 +1,8 @@
-import { AppBar, Box, Button, Toolbar, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import React from 'react';
+
+import { LoginButton } from './LoginButton';
 
 function Header() {
   return (
@@ -14,20 +16,7 @@ function Header() {
           >
             LFMP
           </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-            <Button
-              variant="contained"
-              sx={{
-                color: '#fff',
-                backgroundColor: 'green',
-                ':hover': {
-                  backgroundColor: 'green',
-                },
-              }}
-            >
-              login
-            </Button>
-          </Box>
+          <LoginButton />
         </Toolbar>
       </Container>
     </AppBar>

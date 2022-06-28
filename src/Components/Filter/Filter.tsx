@@ -1,6 +1,7 @@
 import { Box, Typography } from '@mui/material';
 import React from 'react';
 
+import { FilterByMarker } from './FilterByMarker';
 import FilterPagination from './FilterPagination';
 import Genres from './Genres';
 import ResetButton from './ResetButton';
@@ -28,6 +29,7 @@ function Filter() {
         Фильтры:
       </Typography>
       <ResetButton />
+      <FilterByMarker />
       <SortByRating />
       <SortByYear />
       <Genres />

@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+import { useStorage } from 'storage/storageActions';
 
 import { filmsData, FilmType } from './filmData';
 import { StateType } from './FilmList';
@@ -19,9 +20,20 @@ function sortData(data: FilmType[], filter: string): FilmType[] {
 }
 
 function getFilteredData() {
-  const sortedData = useSelector((state: StateType) =>
-    sortData(filmsData, state.sortType),
-  );
+  const storage = useStorage();
+  const sortedData = useSelector((state: StateType) => {
+    switch (state.markerType) {
+      case 'None':
+        return sortData(filmsData, state.sortType);
+      case 'favorite':
+        return sortData(storage.getItem('favorite'), state.sortType);
+      case 'bookmark':
+        return sortData(storage.getItem('bookmark'), state.sortType);
+      default:
+        return sortData(filmsData, state.sortType);
+    }
+  });
+
   const filteredByYear = useSelector((state: StateType) =>
     sortedData.filter(
       ({ release_date }) => new Date(release_date).getFullYear() === state.yearFilter,
