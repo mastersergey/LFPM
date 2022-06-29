@@ -27,8 +27,6 @@ function GenreItem(props: { id: number; name: string }) {
 }
 
 function Genres() {
-  console.log(useSelector((state) => state));
-
   return (
     <FormGroup
       sx={{
