@@ -1,6 +1,6 @@
 import './index.css';
 
-import { Film } from 'Components/Film/Film';
+import { Film } from 'Components/FilmList/film-details';
 import { MainContainer } from 'MainContainer';
 import React from 'react';
 import ReactDOM from 'react-dom';

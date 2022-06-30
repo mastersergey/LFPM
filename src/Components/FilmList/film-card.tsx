@@ -16,14 +16,14 @@ import { Link } from 'react-router-dom';
 import { toggleLoginModal } from 'redux/action';
 import { useStorage } from 'storage/storageActions';
 
-import { FilmType } from './filmData';
-import { StateType } from './FilmList';
+import { FilmType } from './film-data';
+import { StateType } from './film-list';
 
 export function getPosterUrl(path: string | null) {
   return 'https://image.tmdb.org/t/p/w300/' + path;
 }
 
-function FilmCard(props: { film: FilmType }) {
+export function FilmCard(props: { film: FilmType }) {
   const { vote_average, title, poster_path, id } = props.film;
   const isUserLogged = useSelector((state: StateType) => state.isUserLogged);
   const storage = useStorage();

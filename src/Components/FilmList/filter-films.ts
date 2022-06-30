@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { useStorage } from 'storage/storageActions';
 
-import { filmsData, FilmType } from './filmData';
-import { StateType } from './FilmList';
+import { filmsData, FilmType } from './film-data';
+import { StateType } from './film-list';
 
 function sortData(data: FilmType[], filter: string): FilmType[] {
   switch (filter) {
@@ -19,7 +19,11 @@ function sortData(data: FilmType[], filter: string): FilmType[] {
   }
 }
 
-function getFilteredData() {
+export const isGenreInState = (filmGenre: number[], stateGenres: number[]) => {
+  return filmGenre.find((id) => stateGenres.includes(id));
+};
+
+function useFilteredData() {
   const storage = useStorage();
   const sortedData = useSelector((state: StateType) => {
     switch (state.markerType) {
@@ -40,10 +44,6 @@ function getFilteredData() {
     ),
   );
 
-  const isGenreInState = (filmGenre: number[], stateGenres: number[]) => {
-    return filmGenre.find((id) => stateGenres.includes(id));
-  };
-
   const filteredData = useSelector((state: StateType) => {
     return filteredByYear.filter(
       ({ genre_ids }) =>
@@ -54,4 +54,4 @@ function getFilteredData() {
   return filteredData;
 }
 
-export { getFilteredData };
+export { useFilteredData };

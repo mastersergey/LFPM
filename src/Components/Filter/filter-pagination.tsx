@@ -1,14 +1,15 @@
 import { Pagination } from '@mui/material';
-import { StateType } from 'Components/FilmList/FilmList';
-import { getFilteredData } from 'Components/FilmList/filterData';
+import { StateType } from 'Components/FilmList/film-list';
+import { useFilteredData } from 'Components/FilmList/filter-films';
 import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from 'redux/action';
 
 function FilterPagination() {
   const dispatch = useDispatch();
+  const filmsData = useFilteredData();
   const currentPage = useSelector((state: StateType) => state.currentPage);
-  const pagesCount = Math.round(getFilteredData().length / 10);
+  const pagesCount = Math.round(filmsData.length / 10);
 
   function hundlePage(event: ChangeEvent<unknown>, page: number) {
     dispatch(setCurrentPage(page));

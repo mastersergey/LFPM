@@ -1,5 +1,5 @@
 import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
-import { StateType } from 'Components/FilmList/FilmList';
+import { StateType } from 'Components/FilmList/film-list';
 import React, { SyntheticEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeGenre, setCurrentPage, setGenre } from 'redux/action';
@@ -26,7 +26,7 @@ function GenreItem(props: { id: number; name: string }) {
   );
 }
 
-function Genres() {
+function GenresList() {
   return (
     <FormGroup
       sx={{
@@ -44,4 +44,4 @@ function Genres() {
   );
 }
 
-export default Genres;
+export default GenresList;

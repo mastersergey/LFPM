@@ -1,9 +1,9 @@
-type Genre = {
+export type Genre = {
   id: number;
   name: string;
 };
 
-const genresData: Genre[] = [
+export const genresData: Genre[] = [
   {
     id: 28,
     name: 'боевик',

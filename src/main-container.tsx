@@ -1,8 +1,6 @@
 import { Container } from '@mui/material';
-import FilmList from 'Components/FilmList/FilmList';
+import FilmList from 'Components/FilmList/film-list';
 import Filter from 'Components/Filter/Filter';
-import { LoginModal } from 'Components/Modal/LoginModal';
-import { LogOutModal } from 'Components/Modal/LogOutModal';
 import React from 'react';
 
 export function MainContainer() {
@@ -10,8 +8,6 @@ export function MainContainer() {
     <Container maxWidth="xl" sx={{ display: 'flex', mt: '15px' }}>
       <Filter />
       <FilmList />
-      <LoginModal />
-      <LogOutModal />
     </Container>
   );
 }

@@ -2,9 +2,9 @@ import { Container } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import FilmCard from './FilmCard';
-import { FilmType } from './filmData';
-import { getFilteredData } from './filterData';
+import FilmCard from './film-card';
+import { FilmType } from './film-data';
+import { useFilteredData } from './filter-films';
 
 export type StateType = {
   currentPage: number;
@@ -23,8 +23,9 @@ function getCurrentPageList(list: FilmType[], page: number) {
 }
 
 function FilmList() {
+  const filmsData = useFilteredData();
   const currentPageList = useSelector((state: StateType) =>
-    getCurrentPageList(getFilteredData(), Number(state.currentPage)),
+    getCurrentPageList(filmsData, Number(state.currentPage)),
   );
 
   return (
