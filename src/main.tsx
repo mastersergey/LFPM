@@ -1,7 +1,7 @@
 import './index.css';
 
 import { Film } from 'Components/FilmList/film-details';
-import { MainContainer } from 'MainContainer';
+import { MainContainer } from 'main-container';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
