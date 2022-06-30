@@ -8,23 +8,23 @@ import {
   CardMedia,
   Divider,
   IconButton,
-  Link,
   Typography,
 } from '@mui/material';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { toggleLoginModal } from 'redux/action';
 import { useStorage } from 'storage/storageActions';
 
 import { FilmType } from './filmData';
 import { StateType } from './FilmList';
 
-function getPosterUrl(path: string) {
+export function getPosterUrl(path: string | null) {
   return 'https://image.tmdb.org/t/p/w300/' + path;
 }
 
 function FilmCard(props: { film: FilmType }) {
-  const { vote_average, title, poster_path } = props.film;
+  const { vote_average, title, poster_path, id } = props.film;
   const isUserLogged = useSelector((state: StateType) => state.isUserLogged);
   const storage = useStorage();
   const dispatch = useDispatch();
@@ -34,13 +34,9 @@ function FilmCard(props: { film: FilmType }) {
       dispatch(toggleLoginModal(true));
     } else {
       const currentStorage = storage.getItem('favorite') || [];
-      const isDublicate = currentStorage.find(
-        (item: FilmType) => item.id === props.film.id,
-      );
+      const isDublicate = currentStorage.find((item: FilmType) => item.id === id);
       if (isDublicate) {
-        const newStorage = currentStorage.filter(
-          (item: FilmType) => item.id !== props.film.id,
-        );
+        const newStorage = currentStorage.filter((item: FilmType) => item.id !== id);
         storage.setItem('favorite', newStorage);
       } else {
         currentStorage.push(props.film);
@@ -54,13 +50,9 @@ function FilmCard(props: { film: FilmType }) {
       dispatch(toggleLoginModal(true));
     } else {
       const currentStorage = storage.getItem('bookmark') || [];
-      const isDublicate = currentStorage.find(
-        (item: FilmType) => item.id === props.film.id,
-      );
+      const isDublicate = currentStorage.find((item: FilmType) => item.id === id);
       if (isDublicate) {
-        const newStorage = currentStorage.filter(
-          (item: FilmType) => item.id !== props.film.id,
-        );
+        const newStorage = currentStorage.filter((item: FilmType) => item.id !== id);
         storage.setItem('bookmark', newStorage);
       } else {
         currentStorage.push(props.film);
@@ -96,7 +88,7 @@ function FilmCard(props: { film: FilmType }) {
           </CardActions>
           <Typography variant="h6">{title}</Typography>
           <Divider sx={{ mb: '20px' }} />
-          <Link href="/" underline="hover">
+          <Link to={`/film/${id}`} key={id}>
             Подробнее
           </Link>
         </CardContent>

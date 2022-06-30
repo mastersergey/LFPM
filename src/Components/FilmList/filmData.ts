@@ -4062,3 +4062,8 @@ export const filmsData: FilmType[] = [
     vote_count: 885,
   },
 ];
+
+export function getFilmInfo(id: number) {
+  const film = filmsData.find((item: FilmType) => item.id === id);
+  return film !== undefined ? film : filmsData[0];
+}

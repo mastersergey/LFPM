@@ -1,20 +1,26 @@
 import { AppBar, Toolbar, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { LoginButton } from './LoginButton';
 
 function Header() {
   return (
-    <AppBar component="nav" position="sticky" sx={{ mb: '15px' }}>
+    <AppBar component="nav" position="sticky">
       <Container maxWidth="xl">
         <Toolbar>
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', sm: 'block' },
+            }}
           >
-            LFMP
+            <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>
+              LFMP
+            </Link>
           </Typography>
           <LoginButton />
         </Toolbar>

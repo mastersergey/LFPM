@@ -1,23 +1,20 @@
 import './App.css';
 
-import { Container } from '@mui/system';
-import FilmList from 'Components/FilmList/FilmList';
-import Filter from 'Components/Filter/Filter';
 import Header from 'Components/Header/Header';
-import { LoginModal } from 'Components/Modal/LoginModal';
-import { LogOutModal } from 'Components/Modal/LogOutModal';
 import React from 'react';
+import { Provider } from 'react-redux';
+import { Outlet } from 'react-router-dom';
+import { store } from 'redux/store';
 
 function App() {
   return (
     <>
-      <Header />
-      <Container maxWidth="xl" sx={{ display: 'flex' }}>
-        <Filter />
-        <FilmList />
-        <LoginModal />
-        <LogOutModal />
-      </Container>
+      <Provider store={store}>
+        <React.StrictMode>
+          <Header />
+          <Outlet />
+        </React.StrictMode>
+      </Provider>
     </>
   );
 }
