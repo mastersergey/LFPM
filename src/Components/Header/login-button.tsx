@@ -23,6 +23,7 @@ export function LoginButton() {
       variant="contained"
       onClick={isUserLogged ? onLogoutClick : onLoginClick}
       sx={{
+        ml: '30px',
         color: '#fff',
         backgroundColor: buttonColor,
         ':hover': {

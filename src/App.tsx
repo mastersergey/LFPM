@@ -1,6 +1,6 @@
 import './App.css';
 
-import Header from 'Components/Header/Header';
+import Header from 'Components/Header/header';
 import { LoginModal } from 'Components/Modal/login-modal';
 import { LogOutModal } from 'Components/Modal/logout-modal';
 import React from 'react';

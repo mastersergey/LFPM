@@ -88,7 +88,11 @@ export function FilmCard(props: { film: FilmType }) {
           </CardActions>
           <Typography variant="h6">{title}</Typography>
           <Divider sx={{ mb: '20px' }} />
-          <Link to={`/film/${id}`} key={id}>
+          <Link
+            to={`/film/${id}`}
+            key={id}
+            style={{ color: 'black', textDecoration: 'none' }}
+          >
             Подробнее
           </Link>
         </CardContent>

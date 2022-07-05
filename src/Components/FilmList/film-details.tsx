@@ -18,7 +18,7 @@ function getVoteStyle(vote: number) {
     fontSize: '20px',
   };
 }
-function getGenresString(genres: number[]) {
+export function getGenresString(genres: number[]) {
   const result: string[] = [];
   genresData.forEach((element: Genre) => {
     if (genres.includes(element.id)) result.push(element.name);

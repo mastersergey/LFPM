@@ -24,6 +24,7 @@ function getCurrentPageList(list: FilmType[], page: number) {
 
 function FilmList() {
   const filmsData = useFilteredData();
+
   const currentPageList = useSelector((state: StateType) =>
     getCurrentPageList(filmsData, Number(state.currentPage)),
   );

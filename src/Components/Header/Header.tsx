@@ -22,6 +22,9 @@ function Header() {
               LFMP
             </Link>
           </Typography>
+          <Link to="/search" style={{ color: 'white', textDecoration: 'none' }}>
+            SEARCH
+          </Link>
           <LoginButton />
         </Toolbar>
       </Container>

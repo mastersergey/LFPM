@@ -1,6 +1,7 @@
 import './index.css';
 
 import { Film } from 'Components/FilmList/film-details';
+import { SearchPage } from 'Components/search/search';
 import { MainContainer } from 'main-container';
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -16,6 +17,7 @@ ReactDOM.render(
         <Route path="film">
           <Route path=":filmId" element={<Film />} />
         </Route>
+        <Route path="/search" element={<SearchPage />}></Route>
         <Route
           path="*"
           element={
