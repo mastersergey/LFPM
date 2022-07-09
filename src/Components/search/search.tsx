@@ -1,6 +1,6 @@
 import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import { Genre, genresData } from 'Components/Filter/genres/genresData';
+import { Genre, genresData } from 'components/filter/genres/genresData';
 import React, { useState } from 'react';
 
 import { SearchResult } from './search-result';

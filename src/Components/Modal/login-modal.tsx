@@ -7,7 +7,7 @@ import {
   DialogTitle,
   TextField,
 } from '@mui/material';
-import { StateType } from 'Components/FilmList/film-list';
+import { StateType } from 'components/film-list/film-list';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserLog, toggleLoginModal } from 'redux/action';

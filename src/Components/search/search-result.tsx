@@ -1,7 +1,7 @@
 import { Box, Button } from '@mui/material';
-import { getPosterUrl } from 'Components/FilmList/film-card';
-import { filmsData, FilmType } from 'Components/FilmList/film-data';
-import { getGenresString } from 'Components/FilmList/film-details';
+import { getPosterUrl } from 'components/film-list/film-card';
+import { filmsData, FilmType } from 'components/film-list/film-data';
+import { getGenresString } from 'components/film-list/film-details';
 import React, { useState } from 'react';
 
 function getRecommendFilms(genre: string, rating: string, popular: string) {

@@ -1,7 +1,7 @@
 import './index.css';
 
-import { Film } from 'Components/FilmList/film-details';
-import { SearchPage } from 'Components/search/search';
+import { Film } from 'components/film-list/film-details';
+import { SearchPage } from 'components/search/search';
 import { MainContainer } from 'main-container';
 import React from 'react';
 import ReactDOM from 'react-dom';

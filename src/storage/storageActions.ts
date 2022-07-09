@@ -1,4 +1,4 @@
-import { FilmType } from 'Components/FilmList/film-data';
+import { FilmType } from 'components/film-list/film-data';
 
 export function useStorage() {
   function setItem(key: string, value: string | FilmType[]) {

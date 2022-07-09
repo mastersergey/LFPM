@@ -1,9 +1,9 @@
 import { Typography } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import FilmCard from 'Components/FilmList/film-card';
-import { filmsData, FilmType, getFilmInfo } from 'Components/FilmList/film-data';
-import { isGenreInState } from 'Components/FilmList/filter-films';
-import genresData, { Genre } from 'Components/Filter/genres/genresData';
+import FilmCard from 'components/film-list/film-card';
+import { filmsData, FilmType, getFilmInfo } from 'components/film-list/film-data';
+import { isGenreInState } from 'components/film-list/filter-films';
+import genresData, { Genre } from 'components/filter/genres/genresData';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 

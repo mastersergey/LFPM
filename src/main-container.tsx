@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
-import FilmList from 'Components/FilmList/film-list';
-import Filter from 'Components/Filter/Filter';
+import FilmList from 'components/film-list/film-list';
+import Filter from 'components/filter/filter';
 import React from 'react';
 
 export function MainContainer() {

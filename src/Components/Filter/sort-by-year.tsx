@@ -5,7 +5,7 @@ import {
   SelectChangeEvent,
   Typography,
 } from '@mui/material';
-import { StateType } from 'Components/FilmList/film-list';
+import { StateType } from 'components/film-list/film-list';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage, setYearFilter } from 'redux/action';

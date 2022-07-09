@@ -1,6 +1,6 @@
 import { Pagination } from '@mui/material';
-import { StateType } from 'Components/FilmList/film-list';
-import { useFilteredData } from 'Components/FilmList/filter-films';
+import { StateType } from 'components/film-list/film-list';
+import { useFilteredData } from 'components/film-list/filter-films';
 import React, { ChangeEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from 'redux/action';

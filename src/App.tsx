@@ -1,8 +1,8 @@
 import './App.css';
 
-import Header from 'Components/Header/header';
-import { LoginModal } from 'Components/Modal/login-modal';
-import { LogOutModal } from 'Components/Modal/logout-modal';
+import Header from 'components/header/header';
+import { LoginModal } from 'components/modal/login-modal';
+import { LogOutModal } from 'components/modal/logout-modal';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Outlet } from 'react-router-dom';
