@@ -1,4 +1,5 @@
-import { Box, Button } from '@mui/material';
+import { Button } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { getPosterUrl } from 'components/film-list/film-card';
 import { filmsData, FilmType } from 'components/film-list/film-data';
 import { getGenresString } from 'components/film-list/film-details';
@@ -27,16 +28,36 @@ export function SearchResult(props: { genre: string; rating: string; popular: st
   if (isAnswersExist && filteredFilms[filmCount] !== undefined) {
     return (
       <Box>
-        <div style={{ display: 'grid', gridTemplateColumns: '40% 60%' }}>
-          <div>
-            <img src={getPosterUrl(filteredFilms[filmCount].poster_path)} alt="" />
-          </div>
-          <div>
-            <p>{filteredFilms[filmCount].title}</p>
-            <p>{getGenresString(filteredFilms[filmCount].genre_ids)}</p>
-            <p>{filteredFilms[filmCount].overview}</p>
-          </div>
-        </div>
+        <Card
+          sx={{
+            mt: '10px',
+            maxHeight: '500px',
+            display: 'grid',
+            gridTemplateColumns: '40% 60%',
+            boxShadow: '0px 5px 10px 2px rgba(34, 60, 80, 0.2)',
+          }}
+        >
+          <CardMedia
+            component="img"
+            alt="poster"
+            height="520"
+            image={getPosterUrl(filteredFilms[filmCount].poster_path)}
+          />
+          <CardContent>
+            <Typography sx={{ mb: '20px', fontWeight: '700' }} variant="h3">
+              {filteredFilms[filmCount].title}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              sx={{ mb: '20px', color: 'gray', fontWeight: '400' }}
+            >
+              {getGenresString(filteredFilms[filmCount].genre_ids)}
+            </Typography>
+            <Typography variant="subtitle1" sx={{ mb: '20px', fontWeight: '300' }}>
+              {filteredFilms[filmCount].overview}
+            </Typography>
+          </CardContent>
+        </Card>
         <Button href={`/film/${filteredFilms[filmCount].id}`}>Подходит</Button>
         <Button onClick={() => setFilmCount(filmCount + 1)}>Не подходит</Button>
       </Box>
