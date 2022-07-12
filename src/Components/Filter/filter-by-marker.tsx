@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Typography,
-} from '@mui/material';
+import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { StateType } from 'components/film-list/film-list';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,14 +16,6 @@ export function FilterByMarker() {
   if (isUserLogged) {
     return (
       <>
-        <Typography
-          sx={{
-            fontWeight: 400,
-            mb: '10px',
-          }}
-        >
-          Избранные:
-        </Typography>
         <FormControl sx={{ width: '250px', mb: '20px' }}>
           <Select
             value={selectValue}

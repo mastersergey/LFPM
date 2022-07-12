@@ -1,10 +1,4 @@
-import {
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-  Typography,
-} from '@mui/material';
+import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { StateType } from 'components/film-list/film-list';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,14 +14,6 @@ function SortByRating() {
 
   return (
     <>
-      <Typography
-        sx={{
-          fontWeight: 400,
-          mb: '10px',
-        }}
-      >
-        Сортировка по:
-      </Typography>
       <FormControl sx={{ width: '250px', mb: '20px' }}>
         <Select
           value={currentFilter}

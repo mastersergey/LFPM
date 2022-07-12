@@ -1,24 +1,15 @@
-import { FormControl, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { Box, Container } from '@mui/system';
-import { Genre, genresData } from 'components/filter/genres/genresData';
 import React, { useState } from 'react';
 
+import { GenreSelect } from './genre-select';
+import { PopularSelect } from './popular-select';
+import { RatingSelect } from './rating-select';
 import { SearchResult } from './search-result';
 
 export function SearchPage() {
   const [genre, setGenre] = useState('');
   const [rating, setRating] = useState('');
   const [popular, setPopular] = useState('');
-
-  function hundleChangeGenre(event: SelectChangeEvent) {
-    setGenre(event.target.value);
-  }
-  function hundleChangeRating(event: SelectChangeEvent) {
-    setRating(event.target.value);
-  }
-  function hundleChangePopular(event: SelectChangeEvent) {
-    setPopular(event.target.value);
-  }
 
   return (
     <Container
@@ -35,47 +26,11 @@ export function SearchPage() {
           подобрали для вас фильм
         </h5>
         <p>Выбор жанра:</p>
-        <FormControl sx={{ width: '300px', mb: '20px' }}>
-          <Select
-            value={genre}
-            onChange={hundleChangeGenre}
-            displayEmpty
-            autoWidth
-            size="medium"
-          >
-            {genresData.map((genre: Genre) => (
-              <MenuItem key={genre.id} value={genre.id}>
-                {genre.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <GenreSelect onSubmit={(value: string) => setGenre(value)} />
         <p>Оценка фильма:</p>
-        <FormControl sx={{ width: '300px', mb: '20px' }}>
-          <Select
-            value={rating}
-            onChange={hundleChangeRating}
-            displayEmpty
-            autoWidth
-            size="medium"
-          >
-            <MenuItem value={'high'}>Высокая</MenuItem>
-            <MenuItem value={'low'}>Низкая</MenuItem>
-          </Select>
-        </FormControl>
+        <RatingSelect onSubmit={(value: string) => setRating(value)} />
         <p>Популярность фильма:</p>
-        <FormControl sx={{ width: '300px', mb: '20px' }}>
-          <Select
-            value={popular}
-            onChange={hundleChangePopular}
-            displayEmpty
-            autoWidth
-            size="medium"
-          >
-            <MenuItem value={'popular'}>Популярный</MenuItem>
-            <MenuItem value={'noname'}>Неизвестный</MenuItem>
-          </Select>
-        </FormControl>
+        <PopularSelect onSubmit={(value: string) => setPopular(value)} />
       </Box>
       <SearchResult genre={genre} rating={rating} popular={popular} />
     </Container>

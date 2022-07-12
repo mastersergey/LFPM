@@ -29,8 +29,32 @@ function Filter() {
         Фильтры:
       </Typography>
       <ResetButton />
+      <Typography
+        sx={{
+          fontWeight: 400,
+          mb: '10px',
+        }}
+      >
+        Избранные:
+      </Typography>
       <FilterByMarker />
+      <Typography
+        sx={{
+          fontWeight: 400,
+          mb: '10px',
+        }}
+      >
+        Сортировка по:
+      </Typography>
       <SortByRating />
+      <Typography
+        sx={{
+          fontWeight: 400,
+          mb: '10px',
+        }}
+      >
+        Год релиза:
+      </Typography>
       <SortByYear />
       <Genres />
       <FilterPagination />

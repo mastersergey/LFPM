@@ -2,7 +2,7 @@ import { Container } from '@mui/material';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import FilmCard from './film-card';
+import FilmCard from './film-card/film-card';
 import { FilmType } from './film-data';
 import { useFilteredData } from './filter-films';
 

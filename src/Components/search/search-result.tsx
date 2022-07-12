@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
-import { getPosterUrl } from 'components/film-list/film-card';
+import { getPosterUrl } from 'components/film-list/film-card/film-card';
 import { filmsData, FilmType } from 'components/film-list/film-data';
 import { getGenresString } from 'components/film-list/film-details';
 import React, { useState } from 'react';
