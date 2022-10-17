@@ -3,12 +3,12 @@ import { SearchPage } from 'components/search/search';
 import { MainContainer } from 'main-container';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App';
 
 ReactDOM.render(
-  <BrowserRouter basename="/LFPM">
+  <HashRouter>
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="/" element={<MainContainer />}></Route>
@@ -26,6 +26,6 @@ ReactDOM.render(
         />
       </Route>
     </Routes>
-  </BrowserRouter>,
+  </HashRouter>,
   document.getElementById('root'),
 );
