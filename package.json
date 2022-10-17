@@ -1,10 +1,10 @@
 {
   "name": "vite-reactts-eslint-prettier",
   "version": "0.0.0",
-  "homepage": "https://mastersergey.github.io/LFPM",
+  "homepage": "https://mastersergey.github.io/LFPM/",
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -b main -d dist",
     "dev": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
