@@ -1,5 +1,3 @@
-import './index.css';
-
 import { Film } from 'components/film-list/film-details';
 import { SearchPage } from 'components/search/search';
 import { MainContainer } from 'main-container';
