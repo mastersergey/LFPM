@@ -8,7 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from './App';
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename="LFMP">
     <Routes>
       <Route path="/" element={<App />}>
         <Route path="/" element={<MainContainer />}></Route>
