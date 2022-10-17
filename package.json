@@ -1,7 +1,7 @@
 {
   "name": "vite-reactts-eslint-prettier",
   "version": "0.0.0",
-  "homepage": "https://mastersergey.github.io/LFPM",
+  "homepage": ".",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
